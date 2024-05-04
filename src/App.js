@@ -1,8 +1,13 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom/client';
 
-let wordFound = document.getElementById('wordFound');
-let wordNotFound = document.getElementById('wordNotFound');
+let container = document.getElementById('container');
+let wordFound = document.createElement('div');
+let wordNotFound = document.createElement('div');
+wordFound.id = 'wordFound';
+wordNotFound.id = 'wordNotFound';
+container.appendChild(wordFound);
+container.appendChild(wordNotFound);
 wordFound.style.display = "none";
 let wordsToBeAdded = false;
 

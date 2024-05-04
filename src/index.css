@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.container {
+#container {
   text-align: center;
   width: 50%;
   margin: 0 auto;
