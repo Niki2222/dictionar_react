@@ -1,15 +1,28 @@
 import React, { useState } from "react";
 import ReactDOM from 'react-dom/client';
 
-let container = document.getElementById('container');
-let wordFound = document.createElement('div');
-let wordNotFound = document.createElement('div');
-wordFound.id = 'wordFound';
-wordNotFound.id = 'wordNotFound';
-container.appendChild(wordFound);
-container.appendChild(wordNotFound);
-wordFound.style.display = "none";
+// let container = document.getElementById('container');
+// let wordFound = document.createElement('div');
+// let wordNotFound = document.createElement('div');
+// wordFound.id = 'wordFound';
+// wordNotFound.id = 'wordNotFound';
+// container.appendChild(wordFound);
+// container.appendChild(wordNotFound);
+// wordFound.style.display = "none";
+
+let wordFound = document.getElementById('wordFound');
+let wordNotFound = document.getElementById('wordNotFound');
+
 let wordsToBeAdded = false;
+
+function Container() {
+  return(
+    <div className="container">
+      <div id="wordFound">F</div>
+      <div id="wordNotFound">N</div>
+    </div>
+  )
+}
 
 function AddWords(props) {
   const {wordToSearch, doAddWord} = props;
@@ -94,6 +107,7 @@ function App() {
   return (
     <>
       <Dictionary/>
+      <Container />
     </>
   )
 }
