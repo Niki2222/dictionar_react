@@ -12,10 +12,18 @@ code {
     monospace;
 }
 
-#container {
+.app {
   text-align: center;
   width: 50%;
   margin: 0 auto;
+}
+
+.foundWord {
+  background-color: lightblue;
+}
+
+.addWord {
+  background-color: lightcoral;
 }
 
 button {

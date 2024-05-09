@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 function FoundWord({lastWordSearched}) {
   return (
-    <div>
+    <div className='foundWord'>
       <h2>Last word found:</h2>
       <h1>{lastWordSearched}</h1>
     </div>
@@ -11,7 +11,7 @@ function FoundWord({lastWordSearched}) {
 
 function AddWord({lastWordSearched, handleAdd}) {
   return (
-    <div>
+    <div className='addWord'>
       <input type='text' defaultValue={lastWordSearched}></input>
       <button onClick={handleAdd}>Add word</button>
     </div>
@@ -21,7 +21,7 @@ function AddWord({lastWordSearched, handleAdd}) {
 function Dictionary() {
   const [list, setList] = useState(["word"]);
   const [foundWord, setFoundWord] = useState("");
-  const [lastWordSearched, setLastWordSearched] = useState("")
+  const [lastWordSearched, setLastWordSearched] = useState("");
 
   function handleClick() {
     const searchedInput = document.getElementById("inputToSearch").value;
@@ -41,6 +41,7 @@ function Dictionary() {
 
   function handleAdd() {
     setList([...list, lastWordSearched]);
+    setFoundWord("");
   }
 
   return (
@@ -58,7 +59,7 @@ function Dictionary() {
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <>
         <Dictionary />
       </>
