@@ -19,39 +19,39 @@ function AddWord({lastWordSearched, handleAdd}) {
 }
 
 function Dictionary() {
-  const [list, setList] = useState(["word"]);
-  const [foundWord, setFoundWord] = useState("");
-  const [lastWordSearched, setLastWordSearched] = useState("");
+  const [wordsList, setWordsList] = useState(['word']);
+  const [foundWord, setFoundWord] = useState(null);
+  const [lastWordSearched, setLastWordSearched] = useState('');
 
-  function handleClick() {
-    const searchedInput = document.getElementById("inputToSearch").value;
+  function handleSearch() {
+    const searchedInput = document.getElementById('inputToSearch').value;
     if (searchedInput.length === 0) {
-      document.getElementById("inputToSearch").placeholder 
-        = "please enter a word";
+      document.getElementById('inputToSearch').placeholder 
+        = 'please enter a word';
       setFoundWord("");
     }
-    if (list.includes(searchedInput)) {
-      setFoundWord("found");
+    if (wordsList.includes(searchedInput)) {
+      setFoundWord(true);
       setLastWordSearched(searchedInput);
-    } else if (!list.includes(searchedInput) && searchedInput.length > 0){
-      setFoundWord("notFound");
+    } else if (!wordsList.includes(searchedInput) && searchedInput.length > 0){
+      setFoundWord(false);
       setLastWordSearched(searchedInput);
     }
   }
 
   function handleAdd() {
-    setList([...list, lastWordSearched]);
-    setFoundWord("");
+    setWordsList([...wordsList, lastWordSearched]);
+    setFoundWord(null);
   }
 
   return (
     <div>
       <h1>Dictionary</h1>
       <input id='inputToSearch' type='text'></input>
-      <button onClick={handleClick}>Search word</button>
-      {foundWord === "found" && 
+      <button onClick={handleSearch}>Search word</button>
+      {foundWord === true && 
         <FoundWord lastWordSearched={lastWordSearched}/>}
-      {foundWord === "notFound" && 
+      {foundWord === false && 
         <AddWord lastWordSearched={lastWordSearched} handleAdd={handleAdd}/>}
     </div>
   )
@@ -59,7 +59,7 @@ function Dictionary() {
 
 function App() {
   return (
-    <div className="app">
+    <div className='app'>
       <>
         <Dictionary />
       </>
